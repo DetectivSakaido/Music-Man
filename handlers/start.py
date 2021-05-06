@@ -23,18 +23,18 @@ from config import BOT_NAME as bn
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""Halo 👋! Saya dapat memutar musik dalam obrolan suara Grup Telegram.\n\n✣ Apakah Anda ingin saya memutar musik di obrolan suara grup Telegram Anda? Silakan klik \'📜 Panduan Menggunakan BOT 📜\' tombol di bawah untuk mengetahui bagaimana cara menggunakan saya.\n\n✣ Tambahkan [Assistant Music Man](https://t.me/botmusikman) ke grup Anda untuk memutar musik di obrolan suara grup Anda.\n\nManaged With ☕️ By [Risman](https://t.me/mrismanaziz)""",
+        f"""Hello 👋! I can play music in Telegram Group voice chat.\n\n✣ Do you want me to play music in your Telegram group voice chat? Please click \'📜 Guide to Using BOT 📜\' button below to find out how to use mine.\n\n✣ Add it [Assistant Bimal](https://t.me/amsmusicbot) to your group to play music in your group voice chat.\n\nManaged With ☕️ By [Userbot plugin](https://t.me/AMSuserbot)""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "📜 Panduan Menggunakan BOT 📜", url="https://t.me/Lunatic0de/20")
+                        "📜 Guide to Using BOT 📜", url="https://t.me/AMSuserbot")
                   ],[
                     InlineKeyboardButton(
-                        "Group Support", url="https://t.me/SharingUserbot"
+                        "Group Support", url="https://t.me/AMSuserbot"
                     ),
                     InlineKeyboardButton(
-                        "Channel", url="https://t.me/Lunatic0de"
+                        "Channel", url="https://t.me/animemusicstash"
                     )
                 ]
             ]
@@ -44,15 +44,15 @@ async def start(_, message: Message):
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
-      await message.reply_text("""✅ **Pemutar Musik Sedang Online**""",
+      await message.reply_text("""✅ **Music Player Is Online Now**""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Group Support", url="https://t.me/SharingUserbot"
+                        "Support", url="https://t.me/AMSuserbot"
                     ),
                     InlineKeyboardButton(
-                        "Owner", url="https://t.me/mrismanaziz"
+                        "Owner", url="https://t.me/AMSuserbot"
                     )
                 ]
             ]
@@ -61,15 +61,15 @@ async def gstart(_, message: Message):
 
 @Client.on_message(filters.command("reload") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
-      await message.reply_text("""✅ **Pemutar Musik Sedang Online **""",
+      await message.reply_text("""✅ **Music Player Is Online Now**""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Group Support", url="https://t.me/SharingUserbot"
+                        "Group Support", url="https://t.me/AMSuserbot"
                     ),
                     InlineKeyboardButton(
-                        "Owner", url="https://t.me/mrismanaziz"
+                        "Owner", url="https://t.me/AMSuserbot"
                     )
                 ]
             ]
@@ -80,12 +80,12 @@ async def gstart(_, message: Message):
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        """**Klik Tombol dibawah untuk Melihat Panduan Menggunakan Bot**""",
+        """**Click the button below to see the guide to using a bot**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📜 Panduan Menggunakan BOT 📜", url="https://t.me/Lunatic0de/20"
+                        "📜 Click the button below to see the guide to using a bot 📜", url="https://t.me/AMSuserbot"
                     )
                 ]
             ]
