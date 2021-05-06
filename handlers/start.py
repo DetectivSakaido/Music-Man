@@ -28,7 +28,7 @@ async def start(_, message: Message):
             [ 
                 [
                     InlineKeyboardButton(
-                        "📜 Guide to Using BOT 📜", url="https://t.me/AMSuserbot")
+                        "📜 Guide to Using BOT 📜", url="https://telegra.ph/Help-05-06")
                   ],[
                     InlineKeyboardButton(
                         "Group Support", url="https://t.me/AMSuserbot"
@@ -85,7 +85,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "📜 Click the button below to see the guide to using a bot 📜", url="https://t.me/AMSuserbot"
+                        "📜 Click the button below to see the guide to using a bot 📜", url="https://telegra.ph/Help-05-06"
                     )
                 ]
             ]
