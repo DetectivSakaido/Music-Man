@@ -49,7 +49,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('🔎 Sedang Mencari Lagu...')
+    m = message.reply('🔎 Searching for Songs...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -68,17 +68,17 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "❌ Lagu Tidak ditemukan.\n\nCoba Masukan nama lagu yang lebih jelas."
+            "❌ Song not found.\n\nTry entering a more clear song name."
         )
         print(str(e))
         return
-    m.edit("Sedang Mendownload Lagu")
+    m.edit("Downloading Song")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = '**🎵 Uploaded by ** @mrismanaziz'
+        rep = '**🎵 Uploaded by ** @AMSuserbot'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -270,10 +270,10 @@ def time_to_seconds(time):
 async def jssong(_, message):
     global is_downloading
     if len(message.command) < 2:
-        await message.reply_text("/saavn masukan judul lagu.")
+        await message.reply_text("/saavn enter the song title.")
         return
     if is_downloading:
-        await message.reply_text("Downloadan yang lain sedang berlangsung, coba lagi nanti")
+        await message.reply_text("Another download is in progress, please try again later")
         return
     is_downloading = True
     text = message.text.split(None, 1)[1]
@@ -306,15 +306,15 @@ async def jssong(_, message):
 async def deezsong(_, message):
     global is_downloading
     if len(message.command) < 2:
-        await message.reply_text("/deezer masukan judul lagu")
+        await message.reply_text("/deezer enter the song title")
         return
     if is_downloading:
-        await message.reply_text("Downloadan yang lain sedang berlangsung, coba lagi nanti")
+        await message.reply_text("Another download is in progress, please try again later")
         return
     is_downloading = True
     text = message.text.split(None, 1)[1]
     query = text.replace(" ", "%20")
-    m = await message.reply_text("Sedang Mencari Lagu...")
+    m = await message.reply_text("Searching for Song...")
     try:
         songs = await arq.deezer(query, 1)
         title = songs[0].title
@@ -338,16 +338,16 @@ async def deezsong(_, message):
 async def ytmusic(client,message: Message):
     global is_downloading
     if is_downloading:
-        await message.reply_text("Downloadan yang lain sedang berlangsung, coba lagi nanti")
+        await message.reply_text("Another download is in progress, please try again later")
         return
 
     urlissed = get_text(message)
 
     pablo =  await client.send_message(
             message.chat.id,
-            f"`Mendapatkan {urlissed} Dari Youtube. Tunggu Sebentar.`")
+            f"`Got {urlissed} From Youtube. Wait a minute.`")
     if not urlissed:
-        await pablo.edit("Sintaks Perintah Tidak Valid, Silakan Periksa Menu Help Untuk Mengetahui Lebih Lanjut!")
+        await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
         return
     
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
@@ -383,7 +383,7 @@ async def ytmusic(client,message: Message):
 
             if duration > 10:
                 await pablo.edit(
-                    f"❌ Video berdurasi lebih dari 10 menit tidak diperbolehkan, video yang disediakan diperbolehkan {duration} minute(s)"
+                    f"❌ Videos longer than 10 minutes are not allowed, provided videos are allowed {duration} minute(s)"
                 )
                 is_downloading = False
                 return
